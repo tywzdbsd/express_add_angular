@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="vkhimmanager">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>数据管理系统</title>
+    <link rel="stylesheet" href="assets/css/main.css"/>
+    <!-- link for CSS when using the tree as a Dom element -->
+    <link rel="stylesheet" type="text/css" href="../../bower_components/angular-tree-control/css/tree-control.css">
+    <!--&lt;!&ndash; link for CSS when using the tree as an attribute &ndash;&gt;-->
+    <!--<link rel="stylesheet" type="text/css" href="../../bower_components/angular-tree-control/css/tree-control-attribute.css">-->
+</head>
+<body>
+<header class="nav">
+    <div class="wrap">
+        <h1 class="logoname">数据管理系统</h1>
+        <ul class="nav-bar">
+            <li ng-click="goIndex()">登录</li>
+            <li class="end-li">退出</li>
+        </ul>
+    </div>
+</header>
+
+<div class="view-class" ng-view>
+</div>
+
+</body>
+</html>
+<script src="assets/js/jquery-1.7.2.min.js"></script>
+<!--angularjs-->
+<script src="assets/js/angular/angular.min.js"></script>
+<script src="assets/js/angular-route/angular-route.min.js"></script>
+<!--route-->
+<script src="module/index/index.js"></script>
+<script src="module/about/about.js"></script>
+<script src="module/common.js"></script>
+<!--test-->
+<script src="module/test/databinding.js"></script>
+<!--tree-->
+<script type="text/javascript" src="../../bower_components/angular-tree-control/angular-tree-control.js"></script>
+

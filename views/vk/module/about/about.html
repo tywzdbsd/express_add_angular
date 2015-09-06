@@ -1,0 +1,17 @@
+<div class="content">
+	<div class="index-left">
+		<treecontrol class="tree-light"
+					 tree-model="dataForTheTree"
+					 options="treeOptions"
+					 on-selection="showSelected(node)"
+					 selected-node="node1"
+					 expanded-nodes="expandedNodes">
+
+			<span><a onclick=" $location.path('/about');" class="no-link-style">{{node.name}}</a></span>
+		</treecontrol>
+	</div>
+
+	<div class="index-right">
+	    <div>{{pagename}}</div>
+	</div>
+</div>

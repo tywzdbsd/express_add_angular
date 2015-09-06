@@ -1,0 +1,150 @@
+cases.js
+angular.module('yanzeSite.cases', ['ngRoute'])
+
+    .config(['$routeProvider', function ($routeProvider) {
+        $routeProvider.when('/cases', {
+            templateUrl: "module/cases/cases.html",
+            controller: "casescontroller"
+        })
+    }])
+
+    .controller('casescontroller', ['$scope', function ($scope) {
+        $scope.var = "socoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocool";
+        //$scope.sync = "socoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocool";
+}]);
+
+
+cases.html
+    <!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="cases-div">
+    <input type="text" ng-model="sync"/>
+    <br>
+    <p>{{sync}}</p>
+    <p>{{var}}</p>
+    <p>socoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocoolsocool</p>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+common.js
+"use strict";
+angular.module('yanzeSite', [
+    'ngRoute',
+    'yanzeSite.cases'
+])
+    .config(['$routeProvider', function ($routeProvider) {
+        $routeProvider.otherwise({redirectTo: '/index'});
+    }])
+
+    .run(['$rootScope', function ($rootScope) {
+
+    }]);
+
+
+
+<!DOCTYPE html>
+<html ng-app="yanzeSite">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>岩泽网络</title>
+    <link rel="stylesheet" href="./assets/css/nav.css"/>
+    <link rel="stylesheet" href="./assets/css/main.css"/>
+    <link rel="stylesheet" href="./assets/css/cases.css"/>
+</head>
+<body>
+<header class="nav">
+    <div class="wrap">
+        <img src="./assets/images/logo.png" alt="月球出差中~"/>
+        <ul class="nav-bar">
+            <li>首页</li>
+            <li>团队</li>
+            <li>业界</li>
+            <li>纳贤</li>
+            <li class="end-li">联系</li>
+        </ul>
+    </div>
+</header>
+<div class="content" ng-view>
+
+</div>
+</body>
+</html>
+<script src="./assets/js/angular/angular.min.js"></script>
+<script src="./assets/js/angular-route/angular-route.min.js"></script>
+
+<script src="module/common.js"></script>
+<script src="module/cases/cases.js"></script>
+<!--test-->
+<script src="module/cases/databindingDemo.js"></script>
+
+
+step：
+1.建空文件:1)module->module_1->module_1.html 2)module->module_1->module_1.js 3)module->common.js 4)index.html
+
+2.index.html中引入模块文件夹中的总js，和模块文件夹中的分块js
+
+3.html
+1）html中写ng-app:<html ng-app="yanzeSite">，申明边界//g-app是angular的一个指令,代表一个angular应用(也叫模块)
+2）需要加载内容的位置加：<div class="content" ng-view></div>
+3）
+cases.html
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="cases-div">
+    <input type="text" ng-model="sync"/><!--ng-model使用-->
+    <br>
+    <p>{{var}}</p>
+    <p>socool</p>
+</div>
+
+</body>
+</html>
+
+4.配置路由：
+common.js
+angular.module('yanzeSite', [
+    'ngRoute',
+    'yanzeSite.cases',  //案例
+    'yanzeSite.databindingDemo',    //test
+])
+    .config(['$routeProvider', function ($routeProvider) {
+        $routeProvider.otherwise({redirectTo: '/index'});
+    }])
+
+    .run(['$rootScope', function ($rootScope) {
+
+    }]);
+
+cases.js
+angular.module('yanzeSite.cases', ['ngRoute'])
+
+    .config(['$routeProvider', function ($routeProvider) {
+        $routeProvider.when('/cases', {
+            templateUrl: "module/cases/cases.html",
+            controller: "casescontroller"
+        })
+    }])
+
+    .controller('casescontroller', ['$scope', function ($scope) {
+        $scope.var = "socool";
+        //$scope.sync = "socool";
+    }]);
+5.
